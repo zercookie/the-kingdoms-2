@@ -1,0 +1,8 @@
+name = "Axiom"
+filename = "Axiom-4.8.0-for-MC1.21.jar"
+side = "both"
+
+[download]
+url = "https://miniserve.zercookie.uk/projects/The_Kingdoms_2/packwiz/manual_mods/Axiom-4.8.0-for-MC1.21.jar"
+hash-format = "sha256"
+hash = "83049e8dda336a9ccccb7f5155f54fc1ddd56323b882df9be5c6b466ff737f10"

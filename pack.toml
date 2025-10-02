@@ -1,0 +1,14 @@
+name = "The Kingdoms 2"
+author = "zercookie"
+version = "1.0.0"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "a7975ec2c245a73164a9191f626e9ae352e269aa70a81586ed220779a9d5f124"
+
+[versions]
+fabric = "0.17.2"
+minecraft = "1.21.1"
+neoforge = "21.1.209"

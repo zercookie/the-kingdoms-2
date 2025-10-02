@@ -1,0 +1,13 @@
+name = "TQuickSwap"
+filename = "tquickswap-1.4.1 Neoforge 1.21.1.jar"
+side = "server"
+
+[download]
+url = "https://cdn.modrinth.com/data/5MievaHF/versions/18oonROu/tquickswap-1.4.1%20Neoforge%201.21.1.jar"
+hash-format = "sha512"
+hash = "1604353dbfc7f6a2ab36b021c89466b133b39685bb3b64ab883d4ae869a3412737140facc09e18969e5a6bae205ca72243a6392cda9f7babd70c31805edec805"
+
+[update]
+[update.modrinth]
+mod-id = "5MievaHF"
+version = "18oonROu"
