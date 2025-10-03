@@ -61,20 +61,17 @@ def getModListInfoFromTOMLfiles():
     except tomllib.TOMLDecodeError as e:
         print("Error: Failed to parse TOML file: ", e)
 
-def generateREADMEtable(modList):
-    README = ""
-    with open("README.md","r+",encoding="utf-8") as file:
-        content = file.read()
-        print(content)
-        if "# Mods" in content:
-            content += "\n| Name | Client | Server | Optional | Default | Description |\n"
-            content += "|------|:--------:|:--------:|:----------:|:---------:|-------------|\n"
-            file.seek(0)
-            file.write(content)
-            print(content)
-    # for mod in modList:
-    #     README += f"|{mod["name"]}|{mod["client"]}|{mod["server"]}|{mod["optional"]}|{mod["default"]}|{mod["description"]}|\n"
+def generateMODStable(modList):
+    README = "# Mods\n\n"
+    README += "| Name | Client | Server | Optional | Default | Description |\n"
+    README += "|------|:--------:|:--------:|:----------:|:---------:|-------------|\n"
+    for mod in modList:
+        README += f"|{mod["name"]}|{mod["client"]}|{mod["server"]}|{mod["optional"]}|{mod["default"]}|{mod["description"]}|\n"
     return(README)
 
 getModListInfoFromTOMLfiles()
-print(generateREADMEtable(modList))
+
+with open("README.md", "w", encoding="utf-8") as file:
+    file.write("")
+    
+    file.write(generateMODStable(modList))
