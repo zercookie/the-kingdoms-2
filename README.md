@@ -1,7 +1,7 @@
 # Mods
 
 | Name | Client | Server | Optional | Default | Description |
-|------|--------|--------|----------|---------|-------------|
+|------|:--------:|:--------:|:----------:|:---------:|-------------|
 |3D Skin Layers|✅|❌|✅|✅|Adds more detail to player skins & models|
 |Ambient Environment|✅|❌|❌|❌|❌|
 |Architectury API|✅|✅|❌|❌|❌|
