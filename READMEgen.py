@@ -2,6 +2,9 @@ import tomllib
 import os
 
 modList = []
+CHECK = "✅"
+CROSS = "❌"
+
 
 def listFilesInDir(directory):
     try:
@@ -29,14 +32,14 @@ def getModListInfoFromTOMLfiles():
                             if key == "side":
                                 match data[key]:
                                     case "client":
-                                        result["client"] = "✅"
-                                        result["server"] = "❌"
+                                        result["client"] = CHECK
+                                        result["server"] = CROSS
                                     case "server":
-                                        result["client"] = "❌"
-                                        result["server"] = "✅"
+                                        result["client"] = CROSS
+                                        result["server"] = CHECK
                                     case "both":
-                                        result["client"] = "✅"
-                                        result["server"] = "✅"
+                                        result["client"] = CHECK
+                                        result["server"] = CHECK
                             else:
                                 result[key] = data[key]
                         else:
@@ -44,14 +47,14 @@ def getModListInfoFromTOMLfiles():
                                 if sub in data[key]:
                                     match data[key][sub]:
                                         case True:
-                                            result[sub] = result[sub] = "✅"
+                                            result[sub] = result[sub] = CHECK
                                         case False:
-                                            result[sub] = result[sub] = "❌"
+                                            result[sub] = result[sub] = CROSS
                                         case _:
                                             result[sub] = data[key][sub]
                     else:
                         for sub in sub_keys:
-                            result[sub] = "❌"
+                            result[sub] = CROSS
                 modList.append(result)
     except FileNotFoundError as e:
         print("Error: File not found: ", e)
@@ -60,19 +63,18 @@ def getModListInfoFromTOMLfiles():
 
 def generateREADMEtable(modList):
     README = ""
-    README += "| Name | Client | Server | Optional | Default | Description |\n"
-    README += "|------|:--------:|:--------:|:----------:|:---------:|-------------|\n"
-    for mod in modList:
-        README += f"|{mod["name"]}|{mod["client"]}|{mod["server"]}|{mod["optional"]}|{mod["default"]}|{mod["description"]}|\n"
+    with open("README.md","r+",encoding="utf-8") as file:
+        content = file.read()
+        print(content)
+        if "# Mods" in content:
+            content += "\n| Name | Client | Server | Optional | Default | Description |\n"
+            content += "|------|:--------:|:--------:|:----------:|:---------:|-------------|\n"
+            file.seek(0)
+            file.write(content)
+            print(content)
+    # for mod in modList:
+    #     README += f"|{mod["name"]}|{mod["client"]}|{mod["server"]}|{mod["optional"]}|{mod["default"]}|{mod["description"]}|\n"
     return(README)
 
 getModListInfoFromTOMLfiles()
 print(generateREADMEtable(modList))
-
-# | Name | Client | Server | Optional | Default | Description |
-# |------|--------|--------|----------|---------|-------------|
-#
-#
-#
-#
-#
