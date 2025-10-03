@@ -61,7 +61,7 @@ def getModListInfoFromTOMLfiles():
 def generateREADMEtable(modList):
     README = ""
     README += "| Name | Client | Server | Optional | Default | Description |\n"
-    README += "|------|--------|--------|----------|---------|-------------|\n"
+    README += "|------|:--------:|:--------:|:----------:|:---------:|-------------|\n"
     for mod in modList:
         README += f"|{mod["name"]}|{mod["client"]}|{mod["server"]}|{mod["optional"]}|{mod["default"]}|{mod["description"]}|\n"
     return(README)
