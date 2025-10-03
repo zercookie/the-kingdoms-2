@@ -29,14 +29,14 @@ def getModListInfoFromTOMLfiles():
                             if key == "side":
                                 match data[key]:
                                     case "client":
-                                        result["client"] = "✔"
-                                        result["server"] = "✖"
+                                        result["client"] = "✅"
+                                        result["server"] = "❌"
                                     case "server":
-                                        result["client"] = "✖"
-                                        result["server"] = "✔"
+                                        result["client"] = "❌"
+                                        result["server"] = "✅"
                                     case "both":
-                                        result["client"] = "✔"
-                                        result["server"] = "✔"
+                                        result["client"] = "✅"
+                                        result["server"] = "✅"
                             else:
                                 result[key] = data[key]
                         else:
@@ -44,14 +44,14 @@ def getModListInfoFromTOMLfiles():
                                 if sub in data[key]:
                                     match data[key][sub]:
                                         case True:
-                                            result[sub] = result[sub] = "✔"
+                                            result[sub] = result[sub] = "✅"
                                         case False:
-                                            result[sub] = result[sub] = "✖"
+                                            result[sub] = result[sub] = "❌"
                                         case _:
                                             result[sub] = data[key][sub]
                     else:
                         for sub in sub_keys:
-                            result[sub] = "✖"
+                            result[sub] = "❌"
                 modList.append(result)
     except FileNotFoundError as e:
         print("Error: File not found: ", e)
