@@ -1,6 +1,6 @@
 # Mods
 
-| Name | Client | Server | Optional | Default | Description |
+| Name | Client | Server | Optional | Enabled by Default | Description |
 |------|:--------:|:--------:|:----------:|:---------:|-------------|
 |3D Skin Layers|✅|❌|✅|✅|Adds more detail to player skins & models|
 |Ambient Environment|✅|❌|❌|❌|❌|

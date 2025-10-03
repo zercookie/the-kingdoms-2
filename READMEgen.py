@@ -63,7 +63,7 @@ def getModListInfoFromTOMLfiles():
 
 def generateMODStable(modList):
     README = "# Mods\n\n"
-    README += "| Name | Client | Server | Optional | Default | Description |\n"
+    README += "| Name | Client | Server | Optional | Enabled by Default | Description |\n"
     README += "|------|:--------:|:--------:|:----------:|:---------:|-------------|\n"
     for mod in modList:
         README += f"|{mod["name"]}|{mod["client"]}|{mod["server"]}|{mod["optional"]}|{mod["default"]}|{mod["description"]}|\n"
