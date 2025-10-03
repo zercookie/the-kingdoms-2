@@ -36,11 +36,16 @@ try:
                                     result["server"] = "✅"
                         else:
                             result[key] = data[key]
-
                     else:
                         for sub in sub_keys:
                             if sub in data[key]:
-                                result[sub] = data[key][sub]
+                                match data[key][sub]:
+                                    case True:
+                                        result[sub] = result[sub] = "✅"
+                                    case False:
+                                        result[sub] = result[sub] = "❌"
+                                    case _:
+                                        result[sub] = data[key][sub]
                 else:
                     for sub in sub_keys:
                         result[sub] = "❌"
