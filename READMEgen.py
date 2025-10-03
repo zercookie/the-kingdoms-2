@@ -11,9 +11,9 @@ def listFilesInDir(directory):
         return []
 
 try:
-    mods = listFilesInDir("packwiz/mods/")
+    mods = listFilesInDir("mods/")
     for mod in mods:
-        with open(f"packwiz/mods/{mod}","rb") as file:
+        with open(f"mods/{mod}","rb") as file:
             data = tomllib.load(file)
 
             main_keys = ["name","side","option"]
@@ -23,14 +23,27 @@ try:
             for key in main_keys:
                 if key in data:
                     if type(data[key]) == str:
-                        result[key] = data[key]
+                        if key == "side":
+                            match data[key]:
+                                case "client":
+                                    result["client"] = "✅"
+                                    result["server"] = "❌"
+                                case "server":
+                                    result["client"] = "❌"
+                                    result["server"] = "✅"
+                                case "both":
+                                    result["client"] = "✅"
+                                    result["server"] = "✅"
+                        else:
+                            result[key] = data[key]
+
                     else:
                         for sub in sub_keys:
                             if sub in data[key]:
                                 result[sub] = data[key][sub]
                 else:
                     for sub in sub_keys:
-                        result[sub] = None
+                        result[sub] = "❌"
             print(result)
 
 except FileNotFoundError as e:
